@@ -4,6 +4,16 @@ var spinner, requestButton, navGroup, firstGroupVmButton;
 spinner = document.querySelector('.root-319');
 
 if(window.location.host === 'tdc.azure.net'){
+
+  modifyHTML();
+
+  //To allow sometime as the button shows enabled too quickly
+  delay(3000).then(() => {
+    generalFunctionRequestVM();
+  });
+}
+
+function modifyHTML(){
   //Show loading instead
   document.querySelector('#root').style.opacity = "0.2"; 
   var img = document.createElement("img");
@@ -20,12 +30,8 @@ if(window.location.host === 'tdc.azure.net'){
   var body = document.querySelector('body');
   body.insertBefore(div, body.firstChild);
 
+};
 
-  
-  delay(3000).then(() => {
-    generalFunctionRequestVM();
-  });
-}
 
 //Only 3 clicks needed
 //Click request VM
@@ -137,76 +143,6 @@ async function generalFunctionRequestVM(){
 //Little function (promise) to ensure delay
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-
-function repeatEvery(callback, ms){
-
-  let interval = setInterval(()=>{
-    
-    callback;
-  }, ms);
-}
-
-function repeatEveryUntil(){
-
-  return new Promise(resolve =>{
-
-  });
-}
-
-
-
-
-function doClicksForVM(){
-  console.log("doClicksForVM -> Running clicks");
-
-  //Wait max 15s
-  var requestsCounter = 0;
-  
-  var clickedRequestVM = false;
-  var clickedGroupVM = false;
-  var clickedRequestedGroupVM = false;
-  
-  var clicksInterval = setclicksInterval(function () {
-    //Wait max 15s
-    if(requestsCounter < 15){
-      requestsCounter++;
-    }else{
-      clearclicksInterval(clicksInterval);
-      return clickedRequestedGroupVM;
-    }
-    
-    console.log('Request #'+requestsCounter);
-    
-    //Click request VM
-    let requestButton = $('button[data-automation-id="request"]');
-    let firstGroupVmButton = $('button[data-automation-id="request"]');
-    let requestSelectedGroupVmButton = $('.requestVmMainOverride');
-    //$('button[title="CSS SAVM - East US 2"]');
-    //$('button[title="CSS SAVM - East US 2"]');
-    
-    if(!requestButton.disabled && clickedRequestVM === false){
-      requestButton.click();
-      console.log("clicksInterval -> requestButton.click()", requestButton);
-      clickedRequestVM = true;
-    } 
-    
-    //Click first group for VM
-    if(clickedGroupVM === false && clickedRequestVM === true){
-      clickedGroupVM = true;
-    }
-    
-    //Click request VM from selected group
-    if(clickedRequestedGroupVM ===  false && clickedGroupVM === true){
-
-      clickedRequestedGroupVM = true;
-      clearclicksInterval(clicksInterval);
-      return clickedRequestedGroupVM;
-    }
-
-  }, 1000);
-
 }
 
 
