@@ -12,11 +12,11 @@ This is a dummy extension I created just to learn how Chrome extensions work. I 
 ## Usage
 
 1) Click on the extension icon on the right upper corner (Scream icon).
-(Wait
+(Wait for the action to happen).
 
 
 ## Limitations
 
-It will only work for new VMs. If there is already a VM requested, it will fail to download it. 
+It will only work for new VMs. If there is already a VM requested, it will fail to download it. If you need to download existing one, then disable the extension.
 
 Anytime the Front End code (React) is changed by the team, it will likely break it. :')
