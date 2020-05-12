@@ -1,7 +1,7 @@
 //content.js
 //Involved HTML elements
 var spinner, requestButton, navGroup, firstGroupVmButton;  
-spinner = document.querySelector('.root-319');
+spinner = document.querySelector('.virtual-machine-actions-container > div div').nextElementSibling.firstElementChild;
 
 if(window.location.host === 'tdc.azure.net'){
 
@@ -114,7 +114,7 @@ async function generalFunctionRequestVM(){
     console.log("Closing tab once downloaded...");
     delay(2000).then(() => {
       
-      var spinner = document.querySelector('.root-319');
+      var spinner = document.querySelector('.virtual-machine-actions-container > div div').nextElementSibling.firstElementChild;
       let closeInterval = setInterval(()=>{
         if(spinner.style.display === 'none'){
           console.log("closeInterval -> clearcloseInterval(closeInterval)", clearInterval(closeInterval));
