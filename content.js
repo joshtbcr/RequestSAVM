@@ -1,7 +1,9 @@
 //content.js
 //Involved HTML elements
 var spinner, requestButton, navGroup, firstGroupVmButton;  
-spinner = document.querySelector('.virtual-machine-actions-container > div div').nextElementSibling.firstElementChild;
+//spinner = document.querySelector('.virtual-machine-actions-container > div div').nextElementSibling.firstElementChild;
+
+//var element1 = document.querySelector('.ms-DetailsList-contentWrapper > div > div > div > div > div > div > div')
 
 if(window.location.host === 'tdc.azure.net'){
 
@@ -15,7 +17,7 @@ if(window.location.host === 'tdc.azure.net'){
 
 function modifyHTML(){
   //Show loading instead
-  document.querySelector('#root').style.opacity = "0.2"; 
+  document.querySelector('#root').style.opacity = "0.5"; 
   var img = document.createElement("img");
   var txt = document.createElement("h1");
   txt.innerHTML = 'Loading ...';
@@ -29,14 +31,13 @@ function modifyHTML(){
   div.appendChild(txt);
   var body = document.querySelector('body');
   body.insertBefore(div, body.firstChild);
-
 };
 
 
 //Only 3 clicks needed
-//Click request VM
-//Click first group for VM
-//Click request VM from selected group
+//1. Click "request VM"
+//2. Click "first group" for VM
+//3. Click "request VM" from selected group
 async function generalFunctionRequestVM(){
   console.log("Running code for getting a VM");
 
@@ -51,6 +52,7 @@ async function generalFunctionRequestVM(){
     var clickedGroupVM = false;
     var clickedRequestedGroupVM = false;
     
+    //Clicks running in a loop of 15s
     var clicksInterval = setInterval(() => {
       //Wait max 15s
       if(requestsCounter < 15){
@@ -64,6 +66,7 @@ async function generalFunctionRequestVM(){
       
       requestButton = document.querySelector('button[data-automation-id="request"]');
       
+      //1. Click "request VM"
       // if(!requestButton.disabled && spinner.style.display == 'none' && clickedRequestVM === false){
       if(!requestButton.disabled && clickedRequestVM === false){
         console.log("clicksInterval -> requestButton.click()", requestButton.click());
@@ -72,7 +75,7 @@ async function generalFunctionRequestVM(){
 
 
       
-      //Click first group for VM
+      //2. Click "first group" for VM
       if(clickedRequestVM === true && clickedGroupVM ===false){
         navGroup = document.querySelector('div.requestVmMainOverride > div.ms-Modal-scrollableContent > div')
         .children[1].firstElementChild.children[1].firstElementChild.firstElementChild;
@@ -86,7 +89,7 @@ async function generalFunctionRequestVM(){
         }
       }
       
-      //Click request VM from selected group
+      //3. Click "request VM" from selected group
       if(clickedRequestedGroupVM ===  false && clickedGroupVM === true){
         requestSelectedGroupVmButton = 
         document.querySelector('div.requestVmMainOverride > div.ms-Modal-scrollableContent > div.ms-Dialog-lgHeader > div.ms-Dialog-inner > div.ms-Dialog-actions > div.ms-Dialog-actionsRight > span > button');
@@ -146,7 +149,7 @@ function delay(ms) {
 }
 
 
-//Run to function when click on extension is done.
+//Function to run when click on extension is done.
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
       if( request.message === "clicked_browser_action" ) {
