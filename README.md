@@ -20,8 +20,6 @@ It works on Chromium Edge too.
 ## Limitations
 
 It will only work for new VMs. 
-If there is already a VM requested or available, you can click on the VM and it extension will download it (without having to do click on Connect).
+If there is already a VM requested or available, you can click on the VM and the extension will download it (without having to click on Connect).
 
 If the Front End code (React) is changed by the team, it will easily break it. :')
-
-
