@@ -21,7 +21,8 @@ Make sure to pin the extension.
 
 ## Limitations
 
-It will only work for new VMs. If there is already a VM requested, it will fail to download it. If you need to download existing one, then disable the extension.
+It will only work for new VMs. 
+If there is already a VM requested or available, you can click on the VM and it extension will download it (without having to do click on Connect).
 
 If the Front End code (React) is changed by the team, it will easily break it. :')
 
