@@ -9,9 +9,7 @@ It works on Chromium Edge too.
 1) Download source code to local machine.
 2) Go to Chrome extensions: Put this URL chrome://extensions/
 3) Toggle Developer mode on right upper corner.
-4) Click 'Load unpacked' and select the folder with the source code.
-### Note
-Make sure to pin the extension.
+4) Click 'Load unpacked' and select the folder with the source code. Make sure to pin the extension.
 
 ## Usage
 
