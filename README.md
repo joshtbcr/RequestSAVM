@@ -21,5 +21,5 @@ It works on Chromium Edge too.
 
 It will only work for new VMs. 
 If there is already a VM requested or available, you can click on the VM and the extension will download it (without having to click on Connect).
-
+It works only when you are on a page, and not when you have a tab open but without page yet.
 If the Front End code (React) is changed by the team, it will easily break it. :')
