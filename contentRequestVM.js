@@ -2,7 +2,7 @@
 var spinner = document.querySelector('.root-319');
 
 //To allow sometime as the button shows enabled too quickly
-delay(2500).then(() => {
+delay(3500).then(() => {
   getVM();
 });
 
