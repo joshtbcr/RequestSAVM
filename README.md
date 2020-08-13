@@ -17,7 +17,7 @@ Make sure to pin the extension.
 
 1) Click on the extension icon on the right upper corner and wait for the action to happen.
 
-![Request SAVM - Animated gif demo](demo/demo.gif)
+![](demo/pin.gif)
 
 ## Limitations
 
