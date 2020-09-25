@@ -2,10 +2,7 @@
 var spinner = document.querySelector('.root-319');
 
 //To allow sometime as the button shows enabled too quickly
-delay(3500).then(() => {
-  getVM();
-});
-
+delay(3500).then(() => getVM());
 
 function closeTab(){
   //Close tab if succeeded
@@ -13,11 +10,12 @@ function closeTab(){
   delay(2000).then(() => {
     var spinner = document.querySelector('.virtual-machine-actions-container > div div').nextElementSibling.firstElementChild;
     
-    // Click connect once mutated
+    // Close connect once mutated
     const closeCallback = (mutationsList, observer) => {
       console.log("closeCallback -> closing");
       observer.disconnect();
-      window.close();  
+      chrome.runtime.sendMessage({"message": "downloaded_file"});
+      delay(1000).then(()=>window.close());  
     };
     
     const spinnerObserver = new MutationObserver(closeCallback);
@@ -35,9 +33,11 @@ async function getVM(){
   }else if (vmAvailable.tagName == "DIV"){
     getClickedVM();
   }
+
+
 }
 
-let getNewVM = () => {
+function getNewVM() {
   
   //Do the required clicks 
   //Only 3 clicks needed
@@ -104,7 +104,7 @@ let getNewVM = () => {
 
 
 
-let getClickedVM = () => {
+function getClickedVM(){
   console.log("getClickedVM2 -> Waiting for VM to be clicked");
   var connectButton = document.querySelector('button[data-automation-id="connect"]');
   
