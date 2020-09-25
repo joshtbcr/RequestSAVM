@@ -6,8 +6,8 @@ It works on Chromium Edge too.
 
 ## Setup
 
-1) Download source code to local machine.
-2) Go to Chrome extensions: Put this URL chrome://extensions/
+1) Download source code to local machine and extract it.
+2) Go to Chrome extensions (You may put this URL: chrome://extensions/)
 3) Toggle Developer mode on right upper corner.
 4) Click 'Load unpacked' and select the folder with the source code. Make sure to pin the extension.
 
@@ -19,7 +19,6 @@ It works on Chromium Edge too.
 
 ## Limitations
 
-It will only work for new VMs. 
-If there is already a VM requested or available, you can click on the VM and the extension will download it (without having to click on Connect).
-It works only when you are on a page, and not when you have a tab open but without page yet.
-If the Front End code (React) is changed by the team, it will easily break it. :')
+1) It will only work for new VMs. 
+2) If there is already a VM requested or available, you can click on the VM and the extension will download it (without having to click on Connect).
+3) If the Front End code (React) is changed by the team, it may easily break it.
