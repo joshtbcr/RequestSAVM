@@ -15,7 +15,7 @@ function modifyHTML(message){
   body.insertBefore(div, body.firstChild);
 };
 
-delay(2500).then(() => {
+delay(5000).then(() => {
   var vmAvailable = document.querySelector('.ms-DetailsList-headerWrapper + div > div > div > div > div.ms-List-surface > div.ms-List-page');
 
   //Check if it exists
